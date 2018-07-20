@@ -1,2 +1,2 @@
 # Travis toolkit
-JS-client, utils and helpers for `Travis-ci`
+JS-client, utils and helpers for `Travis CI`

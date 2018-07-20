@@ -2,5 +2,6 @@
   "name": "@qiwi/travis-client",
   "description": "Travis CI client",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "version": "1.0.0"
 }

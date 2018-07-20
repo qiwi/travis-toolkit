@@ -8,9 +8,73 @@
     "build": "yarn clean && lerna run --stream build",
     "watch": "lerna run --parallel watch",
     "start": "lerna run --stream start",
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+
+    "test": "npm run flow && npm run flow_coverage && npm run lint && lerna run build && npm run jest",
+    "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
+    "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
+    "coveralls_push": "cat ./coverage/lcov.info | coveralls",
+    "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
+    "flow": "flow",
+    "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
+    "fetch_libdefs": "flow-typed install lodash@4.17.10",
+    "lint": "standard packages/**/src/**/*.js packages/**/test/**/*.js"
   },
   "devDependencies": {
-    "lerna": "^2.11.0"
+    "@semantic-release/changelog": "^3.0.0",
+    "@semantic-release/git": "^7.0.1",
+    "@semantic-release/github": "^5.0.1",
+    "@semantic-release/npm": "^4.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "^23.4.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-minify": "^0.4.3",
+    "codeclimate-test-reporter": "^0.5.0",
+    "coveralls": "^3.0.2",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "flow-bin": "^0.76.0",
+    "flow-coverage-report": "^0.5.0",
+    "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.5.1",
+    "jest": "^23.4.1",
+    "lerna": "^2.11.0",
+    "semantic-release": "^15.8.1",
+    "semantic-release-monorepo": "^6.0.3",
+    "semantic-release-monorepo-hooks": "^1.1.5",
+    "standard": "^11.0.1"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "globals": [
+      "jest",
+      "it",
+      "expect",
+      "describe",
+      "before",
+      "beforeAll",
+      "beforeEach",
+      "afterAll",
+      "after",
+      "afterEach",
+      "xdescribe",
+      "xit"
+    ],
+    "rules": {
+      "use-flow-type": 1
+    },
+    "ignore": [],
+    "settings": {
+      "flowtype": {
+        "onlyFilesWithFlowAnnotation": true
+      }
+    }
   }
 }
