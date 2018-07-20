@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "lerna clean --yes && lerna run clean",
+    "build": "yarn clean && lerna run --stream build",
+    "watch": "lerna run --parallel watch",
+    "start": "lerna run --stream start",
+    "bootstrap": "lerna bootstrap"
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0"
+  }
+}

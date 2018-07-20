@@ -1,0 +1,6 @@
+{
+  "name": "@qiwi/travis-automator",
+  "description": "Travis CI automator",
+  "dependencies": {},
+  "devDependencies": {}
+}

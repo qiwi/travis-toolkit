@@ -1,0 +1,6 @@
+{
+  "name": "@qiwi/travis-cli",
+  "description": "Travis CI CLI",
+  "dependencies": {},
+  "devDependencies": {}
+}
