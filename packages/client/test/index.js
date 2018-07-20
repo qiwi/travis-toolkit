@@ -1,4 +1,5 @@
 import index, {createClient} from '../src'
+import Client from '../src/client'
 
 describe('index', () => {
   it('properly exposes public api', () => {
@@ -7,8 +8,9 @@ describe('index', () => {
   })
 
   it('`createClient` factory produces a new client instance', () => {
-    const client = createClient({})
+    const opts = {token: 'foo'}
+    const client = createClient(opts)
 
-    expect(client).toBeUndefined()
+    expect(client).toBeInstanceOf(Client)
   })
 })

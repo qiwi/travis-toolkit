@@ -1,7 +1,10 @@
 // @flow
 
-export function createClient (opts: Object): void {
-  return undefined
+import Client from './client'
+import type {IClient, IClientOpts} from './interface'
+
+export function createClient (opts: IClientOpts): IClient {
+  return new Client(opts)
 }
 
 export default createClient
