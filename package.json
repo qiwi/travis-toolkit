@@ -9,7 +9,6 @@
     "watch": "lerna run --parallel watch",
     "start": "lerna run --stream start",
     "bootstrap": "lerna bootstrap",
-
     "test": "npm run flow && npm run flow_coverage && npm run lint && lerna run build && npm run jest",
     "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
     "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
@@ -17,7 +16,7 @@
     "jest": "BABEL_ENV=test NODE_ENV=test jest -w 1 --detectOpenHandles --config jest.config.json",
     "flow": "flow",
     "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
-    "fetch_libdefs": "flow-typed install lodash@4.17.10",
+    "fetch_libdefs": "flow-typed install axios@0.18.0",
     "lint": "standard packages/**/src/**/*.js packages/**/test/**/*.js"
   },
   "devDependencies": {

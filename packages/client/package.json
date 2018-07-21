@@ -1,7 +1,9 @@
 {
   "name": "@qiwi/travis-client",
   "description": "Travis CI client",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
   "devDependencies": {},
   "version": "1.0.0",
   "scripts": {
