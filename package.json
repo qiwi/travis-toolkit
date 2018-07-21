@@ -20,10 +20,10 @@
     "lint": "standard packages/**/src/**/*.js packages/**/test/**/*.js"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.0",
-    "@semantic-release/git": "^7.0.1",
-    "@semantic-release/github": "^5.0.1",
-    "@semantic-release/npm": "^4.0.0",
+    "@semantic-release/changelog": "^2.1.1",
+    "@semantic-release/git": "^6.0.1",
+    "@semantic-release/github": "^4.2.18",
+    "@semantic-release/npm": "^3.3.4",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
@@ -42,7 +42,7 @@
     "flow-typed": "^2.5.1",
     "jest": "^23.4.1",
     "lerna": "^2.11.0",
-    "semantic-release": "^15.8.1",
+    "semantic-release": "15.6.3",
     "semantic-release-monorepo": "^6.0.3",
     "semantic-release-monorepo-hooks": "^1.1.5",
     "standard": "^11.0.1"
