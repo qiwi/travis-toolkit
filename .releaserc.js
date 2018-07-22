@@ -15,7 +15,10 @@ module.exports = {
   prepare: [
     '@semantic-release/changelog',
     '@semantic-release/npm',
-    '@semantic-release/git'
+    {
+      "path": "@semantic-release/git",
+      "message": "chore(${nextRelease.LERNA_PACKAGE_NAME}): release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+    }
   ],
   publish: publish,
   verifyConditions: ['@semantic-release/npm', '@semantic-release/git']
