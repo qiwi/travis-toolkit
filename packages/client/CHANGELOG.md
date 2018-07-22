@@ -1,3 +1,10 @@
+# [@qiwi/travis-client-v1.2.0](https://github.com/qiwi/travis-toolkit/compare/v1.1.0...v1.2.0) (2018-07-22)
+
+
+### Features
+
+* **client:** add opts processot ([8679ef1](https://github.com/qiwi/travis-toolkit/commit/8679ef1))
+
 # [@qiwi/travis-client-v1.1.0](https://github.com/qiwi/travis-toolkit/compare/v1.0.0...v1.1.0) (2018-07-22)
 
 
