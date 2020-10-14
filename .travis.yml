@@ -1,20 +1,40 @@
+os: linux
 language: node_js
-node_js:
-  - '10'
+node_js: 14
 
-before_install:
-  - npm install -g yarn
+jobs:
+  include:
+    - stage: build
+      install: yarn
+      script: yarn build
+      workspaces:
+        create:
+          name: shared
+          paths:
+            - node_modules
+            - packages
+    - &test
+      stage: test
+      node_js: 12
+      install: skip
+      script: yarn jest
+      workspaces:
+        use: shared
+    - <<: *test
+      node_js: 14
+      before_script:
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
+        - ./cc-test-reporter before-build
+      script:
+        - yarn test:report
+      after_script:
+        - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.info
+        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
-install:
-  - yarn install
-  - yarn run bootstrap
-
-script:
-  - yarn run test
-  - yarn run build
-
-deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - yarn lerna exec --concurrency 1 "npx --no-install semantic-release -e semantic-release-monorepo"
+    - stage: release
+      if: branch = master AND type != pull_request
+      workspaces:
+        use: shared
+      install: skip
+      script: yarn release
