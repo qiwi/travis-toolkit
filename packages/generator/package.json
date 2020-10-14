@@ -45,7 +45,7 @@
     "type": "git",
     "url": "git+https://github.com/qiwi/travis-toolkit.git"
   },
-  "author",: "Anton Golub <mailbox@antongolub.ru>",
+  "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/qiwi/travis-toolkit/issues"
