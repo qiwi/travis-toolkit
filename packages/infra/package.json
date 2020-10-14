@@ -39,12 +39,12 @@
   "optionalDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gerritkit/client.git"
+    "url": "git+https://github.com/qiwi/travis-toolkit.git"
   },
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gerritkit/client/issues"
+    "url": "https://github.com/qiwi/travis-toolkit/issues"
   },
-  "homepage": "https://github.com/gerritkit/client/#readme"
+  "homepage": "https://github.com/qiwi/travis-toolkit/#readme"
 }
