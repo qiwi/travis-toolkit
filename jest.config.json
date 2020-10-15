@@ -1,17 +1,7 @@
 {
-  "testEnvironment": "node",
   "collectCoverage": true,
-  "coveragePathIgnorePatterns": [
-    "interface.js"
-  ],
-  "collectCoverageFrom": [
-    "<rootDir>/packages/**/src/**/*.js"
-  ],
-  "testMatch": [
-    "<rootDir>/packages/**/test/**/*.js"
-  ],
-  "transformIgnorePatterns": [
-    "/!node_modules\\/lodash-es/",
-    "<roodDir>/node_modules/(?!lodash-es)"
+  "testEnvironment": "node",
+  "projects": [
+    "<rootDir>/packages/generator/jest.config.json"
   ]
 }

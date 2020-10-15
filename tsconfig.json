@@ -1,0 +1,9 @@
+{
+  "extends": "./packages/infra/tsconfig.compiler.json",
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "paths": {
+      "@qiwi/travis-generator": ["./generator/src/main/ts"],
+    }
+  }
+}
