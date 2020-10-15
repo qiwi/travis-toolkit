@@ -1,25 +1,31 @@
-os: linux
 language: node_js
-node_js: 14
 
 jobs:
   include:
     - stage: build
-      install: yarn
-      script: yarn build
+      os: linux
+      node_js: 14
+      before_install:
+        - npm install -g nyc
+        - npm install -g mocha
+      install: npm install
+      script: skip
+      # https://docs.travis-ci.com/user/using-workspaces/
       workspaces:
         create:
           name: shared
           paths:
             - node_modules
-            - packages
+
     - &test
       stage: test
-      node_js: 12
+      node_js: 10
       install: skip
-      script: yarn jest
+      script: npm test
       workspaces:
         use: shared
+    - <<: *test
+      node_js: 12
     - <<: *test
       node_js: 14
       before_script:
@@ -27,14 +33,15 @@ jobs:
         - chmod +x ./cc-test-reporter
         - ./cc-test-reporter before-build
       script:
-        - yarn test:report
+        - npm run test:report
       after_script:
         - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.info
         - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
     - stage: release
       if: branch = master AND type != pull_request
+      node_js: 14
       workspaces:
         use: shared
       install: skip
-      script: yarn release
+      script: npm run release
