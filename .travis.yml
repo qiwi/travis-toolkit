@@ -1,28 +1,25 @@
+os: linux
 language: node_js
+node_js: 14
 
 jobs:
   include:
     - stage: build
-      os: linux
-      node_js: 14
       install: yarn
-      script: skip
-      # https://docs.travis-ci.com/user/using-workspaces/
+      script: yarn build
       workspaces:
         create:
           name: shared
           paths:
             - node_modules
-
+            - packages
     - &test
       stage: test
-      node_js: 10
+      node_js: 12
       install: skip
       script: yarn jest
       workspaces:
         use: shared
-    - <<: *test
-      node_js: 12
     - <<: *test
       node_js: 14
       before_script:
@@ -37,7 +34,6 @@ jobs:
 
     - stage: release
       if: branch = master AND type != pull_request
-      node_js: 14
       workspaces:
         use: shared
       install: skip
