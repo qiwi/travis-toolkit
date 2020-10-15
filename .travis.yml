@@ -5,10 +5,7 @@ jobs:
     - stage: build
       os: linux
       node_js: 14
-      before_install:
-        - npm install -g nyc
-        - npm install -g mocha
-      install: npm install
+      install: yarn
       script: skip
       # https://docs.travis-ci.com/user/using-workspaces/
       workspaces:
@@ -21,7 +18,7 @@ jobs:
       stage: test
       node_js: 10
       install: skip
-      script: npm test
+      script: yarn jest
       workspaces:
         use: shared
     - <<: *test
@@ -33,7 +30,7 @@ jobs:
         - chmod +x ./cc-test-reporter
         - ./cc-test-reporter before-build
       script:
-        - npm run test:report
+        - yarn test:report
       after_script:
         - ./cc-test-reporter format-coverage -t lcov ./coverage/lcov.info
         - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
@@ -44,4 +41,4 @@ jobs:
       workspaces:
         use: shared
       install: skip
-      script: npm run release
+      script: yarn release
