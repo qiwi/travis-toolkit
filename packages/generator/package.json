@@ -37,10 +37,16 @@
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
     "postupdate": "yarn && yarn build && yarn test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cheerio": "^1.0.0-rc.3"
+  },
   "peerDependencies": {},
   "optionalDependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/cheerio": "^0.22.22",
+    "axios-mock-adapter": "^1.18.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qiwi/travis-toolkit.git"
