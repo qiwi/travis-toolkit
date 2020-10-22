@@ -14,7 +14,7 @@ export type TTableParametersType = keyof TTableParametersTypes
 export type TActionTableItem = {
   httpMethod: string
   template: string
-} & TTableParametersTypes
+} & { input: TTableParametersTypes }
 
 export type TParsedAction = Record<string, TActionTableItem[]>
 

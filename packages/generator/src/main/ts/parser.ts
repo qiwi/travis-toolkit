@@ -38,6 +38,7 @@ export function parseTable(tableHtml: string) {
   const res: TActionTableItem = {
     httpMethod,
     template,
+    input: {},
   }
 
   $('table').each((_, el) => {
@@ -53,7 +54,7 @@ export function parseTable(tableHtml: string) {
           type: cheerio.load(el)('td.type').text(),
         })
       })
-    res[tableTitle as TTableParametersType] = tableItems
+    res.input[tableTitle as TTableParametersType] = tableItems
   })
 
   return res

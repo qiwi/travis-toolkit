@@ -14,12 +14,7 @@ mock
   .onGet('https://developer.travis-ci.com/resource/active#Active')
   .reply(200, activeResponse.data)
 
-describe('generator', () => {
-  // const { getLinks, getActions } = createCrawler(
-  //   'https://developer.travis-ci.com',
-  //   'rack.session=123456789',
-  // )
-
+describe('parser', () => {
   describe('getLinks', () => {
     it('', async () => {
       const res = await getLinks(
@@ -85,26 +80,28 @@ describe('generator', () => {
             {
               httpMethod: 'PATCH',
               template: '/user/{user.id}/beta_feature/{beta_feature.id}',
-              templateVariable: [
-                {
-                  name: 'user.id',
-                  type: 'Integer',
-                },
-                {
-                  name: 'beta_feature.id',
-                  type: 'Integer',
-                },
-              ],
-              acceptedParameter: [
-                {
-                  name: 'beta_feature.id',
-                  type: 'Integer',
-                },
-                {
-                  name: 'beta_feature.enabled',
-                  type: 'Boolean',
-                },
-              ],
+              input: {
+                templateVariable: [
+                  {
+                    name: 'user.id',
+                    type: 'Integer',
+                  },
+                  {
+                    name: 'beta_feature.id',
+                    type: 'Integer',
+                  },
+                ],
+                acceptedParameter: [
+                  {
+                    name: 'beta_feature.id',
+                    type: 'Integer',
+                  },
+                  {
+                    name: 'beta_feature.enabled',
+                    type: 'Boolean',
+                  },
+                ],
+              },
             },
           ],
         },
@@ -113,16 +110,18 @@ describe('generator', () => {
             {
               httpMethod: 'DELETE',
               template: '/user/{user.id}/beta_feature/{beta_feature.id}',
-              templateVariable: [
-                {
-                  name: 'user.id',
-                  type: 'Integer',
-                },
-                {
-                  name: 'beta_feature.id',
-                  type: 'Integer',
-                },
-              ],
+              input: {
+                templateVariable: [
+                  {
+                    name: 'user.id',
+                    type: 'Integer',
+                  },
+                  {
+                    name: 'beta_feature.id',
+                    type: 'Integer',
+                  },
+                ],
+              },
             },
           ],
         },
@@ -139,54 +138,60 @@ describe('generator', () => {
             {
               httpMethod: 'GET',
               template: '/owner/github_id/{github_id}/active',
-              templateVariable: [
-                {
-                  name: 'github_id',
-                  type: 'Unknown',
-                },
-              ],
-              queryParameter: [
-                {
-                  name: 'include',
-                  type: '[String]',
-                },
-              ],
+              input: {
+                templateVariable: [
+                  {
+                    name: 'github_id',
+                    type: 'Unknown',
+                  },
+                ],
+                queryParameter: [
+                  {
+                    name: 'include',
+                    type: '[String]',
+                  },
+                ],
+              },
             },
             {
               httpMethod: 'GET',
               template: '/owner/{provider}/{login}/active',
-              templateVariable: [
-                {
-                  name: 'provider',
-                  type: 'Unknown',
-                },
-                {
-                  name: 'login',
-                  type: 'Unknown',
-                },
-              ],
-              queryParameter: [
-                {
-                  name: 'include',
-                  type: '[String]',
-                },
-              ],
+              input: {
+                templateVariable: [
+                  {
+                    name: 'provider',
+                    type: 'Unknown',
+                  },
+                  {
+                    name: 'login',
+                    type: 'Unknown',
+                  },
+                ],
+                queryParameter: [
+                  {
+                    name: 'include',
+                    type: '[String]',
+                  },
+                ],
+              },
             },
             {
               httpMethod: 'GET',
               template: '/owner/{login}/active',
-              templateVariable: [
-                {
-                  name: 'login',
-                  type: 'Unknown',
-                },
-              ],
-              queryParameter: [
-                {
-                  name: 'include',
-                  type: '[String]',
-                },
-              ],
+              input: {
+                templateVariable: [
+                  {
+                    name: 'login',
+                    type: 'Unknown',
+                  },
+                ],
+                queryParameter: [
+                  {
+                    name: 'include',
+                    type: '[String]',
+                  },
+                ],
+              },
             },
           ],
         },
