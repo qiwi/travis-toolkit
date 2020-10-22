@@ -1,6 +1,6 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import { createCrawler } from '../../main/ts'
+import { getLinks, getActions } from '../../main/ts'
 import getLinksResponse from './stub/getLinks.json'
 import betaFeatureResponse from './stub/betaFeature.json'
 import activeResponse from './stub/active.json'
@@ -15,14 +15,17 @@ mock
   .reply(200, activeResponse.data)
 
 describe('generator', () => {
-  const { getLinks, getActions } = createCrawler(
-    'https://developer.travis-ci.com',
-    'rack.session=123456789',
-  )
+  // const { getLinks, getActions } = createCrawler(
+  //   'https://developer.travis-ci.com',
+  //   'rack.session=123456789',
+  // )
 
   describe('getLinks', () => {
     it('', async () => {
-      const res = await getLinks()
+      const res = await getLinks(
+        'https://developer.travis-ci.com',
+        'rack.session=123456789',
+      )
       expect(res).toMatchObject([
         'https://developer.travis-ci.com/resource/active#Active',
         'https://developer.travis-ci.com/resource/beta_feature#Beta feature',
@@ -74,6 +77,7 @@ describe('generator', () => {
     it('beta_feature', async () => {
       const res = await getActions(
         'https://developer.travis-ci.com/resource/beta_feature#Beta%20feature',
+        'rack.session=123456789',
       )
       expect(res).toMatchObject([
         {
@@ -127,6 +131,7 @@ describe('generator', () => {
     it('active', async () => {
       const res = await getActions(
         'https://developer.travis-ci.com/resource/active#Active',
+        'rack.session=123456789',
       )
       expect(res).toMatchObject([
         {

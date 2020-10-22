@@ -1,1 +1,1 @@
-export { createCrawler } from './parser'
+export { getLinks, getActions } from './parser'
