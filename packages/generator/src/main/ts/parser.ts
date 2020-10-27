@@ -7,14 +7,7 @@ import {
   TParsedPage,
   TTableParametersType,
 } from './types'
-
-export function unCapitalize(str: string) {
-  return str.charAt(0).toLowerCase() + str.slice(1)
-}
-
-export function normaliseName(name: string) {
-  return unCapitalize(name.replace(/[\s,./`-]/g, ''))
-}
+import { normalizeName } from './utils'
 
 export async function getLinks(baseUrl: string, cookie: string) {
   const data = await axios.get(baseUrl, {
@@ -42,7 +35,7 @@ export function parseTable(tableHtml: string) {
   }
 
   $('table').each((_, el) => {
-    const tableTitle = normaliseName(
+    const tableTitle = normalizeName(
       cheerio.load(el)('thead > tr > th:nth-child(1)').text(),
     )
     const tableItems: TParameter[] = []
@@ -66,7 +59,7 @@ export function getActionItem(html: string) {
       /(<div class="request">(.|[\r\n])*?(?=<div class="request">))|<div class="request">(.|[\r\n])*/g, // eslint-disable-line
     ) || []
   return {
-    [normaliseName(cheerio.load(html)('h4').text())]: table.map(parseTable),
+    [normalizeName(cheerio.load(html)('h4').text())]: table.map(parseTable),
   }
 }
 
