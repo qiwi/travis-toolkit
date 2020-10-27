@@ -1,4 +1,8 @@
-import { generateInputType, generateFunction, generateFunctionBody } from '../../main/ts/index'
+import {
+  generateInputType,
+  generateFunction,
+  generateFunctionBody,
+} from '../../main/ts/index'
 
 describe('generator', () => {
   describe('generateInputType', () => {

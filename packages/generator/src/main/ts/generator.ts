@@ -1,9 +1,26 @@
-import { TActionTableItem, TParsedAction, TTableParametersTypes } from './types'
+import {
+  TActionTableItem,
+  TParameter,
+  TParsedAction,
+  TTableParametersTypes,
+} from './types'
 import { normalizeName } from './utils'
 
 export function generateInputType(input: TTableParametersTypes): string {
   function aggregate(templateName: string, template: string) {
     return `${template ? `${templateName}: { ${template} },` : ''}`
+  }
+
+  function getParameter(vars?: TParameter[]) {
+    return `${
+      vars
+        ? vars
+            .map(({ name, type }) => {
+              return `${name}: ${formatType(type)}`
+            })
+            .join(', ')
+        : ''
+    }`
   }
 
   const templateVariable = `${
@@ -15,26 +32,8 @@ export function generateInputType(input: TTableParametersTypes): string {
           .join(', ')
       : ''
   }`
-
-  const acceptedParameter = `${
-    input.acceptedParameter
-      ? input.acceptedParameter
-          .map(({ name, type }) => {
-            return `${name}: ${formatType(type)}`
-          })
-          .join(', ')
-      : ''
-  }`
-
-  const queryParameter = `${
-    input.queryParameter
-      ? input.queryParameter
-          .map(({ name, type }) => {
-            return `${name}: ${formatType(type)}`
-          })
-          .join(', ')
-      : ''
-  }`
+  const acceptedParameter = getParameter(input.acceptedParameter)
+  const queryParameter = getParameter(input.queryParameter)
 
   return `
 {
@@ -52,22 +51,25 @@ ${[
 }
 
 export function generateUrl(template: string) {
-  return template.replace(/{.*?}/g, (str: string)=> {
-    const parsed = str.slice(1,-1)
+  return template.replace(/{.*?}/g, (str: string) => {
+    const parsed = str.slice(1, -1)
     return `\${data.templateVariable.${parsed}}`
   })
 }
 
 export function generateFunctionBody(methodInfo: TActionTableItem): string {
-
-  return (
-`
+  return `
     if (
-      Object.keys(data.templateVariable).length === ${methodInfo.input.templateVariable?.length} &&
-      ${methodInfo.input.templateVariable?.map((parameter)=>`'${parameter.name}' in data.templateVariable`)
-      .join(' &&\n')}
+      Object.keys(data.templateVariable).length === ${
+        methodInfo.input.templateVariable?.length
+      } &&
+      ${methodInfo.input.templateVariable
+        ?.map((parameter) => `'${parameter.name}' in data.templateVariable`)
+        .join(' &&\n')}
     ) {
-      return axios[${methodInfo.httpMethod}]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
+      return axios[${
+        methodInfo.httpMethod
+      }]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
@@ -77,7 +79,6 @@ export function generateFunctionBody(methodInfo: TActionTableItem): string {
       })
     }
 `
-  )
 }
 
 export function generateFunction(action: TParsedAction): string {
@@ -87,17 +88,14 @@ export function generateFunction(action: TParsedAction): string {
 function ${name} (data: ${actionTableItem
         .map((data) => generateInputType(data.input))
         .join(' | ')}){
-          ${actionTableItem.map(data => generateFunctionBody(data)).join('\n')}
+          ${actionTableItem
+            .map((data) => generateFunctionBody(data))
+            .join('\n')}
         }
 `
     })
     .join('')
 }
-
-// export function generateType(action: TParsedAction): string {
-//   Object.keys(action).map(([key, value])=>{})
-//   return action.toString()
-// }
 
 export function formatType(type: string) {
   const typeMap = {
