@@ -1,1 +1,1 @@
-export const foo = 'bar'
+export { getLinks, getActions } from './parser'
