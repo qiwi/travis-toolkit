@@ -16,11 +16,8 @@ mock
 
 describe('parser', () => {
   describe('getLinks', () => {
-    it('', async () => {
-      const res = await getLinks(
-        'https://developer.travis-ci.com',
-        'rack.session=123456789',
-      )
+    it('return list links', async () => {
+      const res = await getLinks('https://developer.travis-ci.com')
       expect(res).toMatchObject([
         'https://developer.travis-ci.com/resource/active#Active',
         'https://developer.travis-ci.com/resource/beta_feature#Beta feature',
@@ -68,134 +65,138 @@ describe('parser', () => {
     })
   })
 
-  describe('getPage', () => {
-    it('beta_feature', async () => {
+  describe('getActions', () => {
+    it('return object with "beta_feature" info', async () => {
       const res = await getActions(
         'https://developer.travis-ci.com/resource/beta_feature#Beta%20feature',
-        'rack.session=123456789',
       )
-      expect(res).toMatchObject([
-        {
-          update: [
-            {
-              httpMethod: 'PATCH',
-              template: '/user/{user.id}/beta_feature/{beta_feature.id}',
-              input: {
-                templateVariable: [
-                  {
-                    name: 'user.id',
-                    type: 'Integer',
-                  },
-                  {
-                    name: 'beta_feature.id',
-                    type: 'Integer',
-                  },
-                ],
-                acceptedParameter: [
-                  {
-                    name: 'beta_feature.id',
-                    type: 'Integer',
-                  },
-                  {
-                    name: 'beta_feature.enabled',
-                    type: 'Boolean',
-                  },
-                ],
+      expect(res).toMatchObject({
+        title: 'betaFeature',
+        actions: [
+          {
+            updateAction: [
+              {
+                httpMethod: 'PATCH',
+                template: '/user/{user.id}/beta_feature/{beta_feature.id}',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'user.id',
+                      type: 'Integer',
+                    },
+                    {
+                      name: 'beta_feature.id',
+                      type: 'Integer',
+                    },
+                  ],
+                  acceptedParameter: [
+                    {
+                      name: 'beta_feature.id',
+                      type: 'Integer',
+                    },
+                    {
+                      name: 'beta_feature.enabled',
+                      type: 'Boolean',
+                    },
+                  ],
+                },
               },
-            },
-          ],
-        },
-        {
-          delete: [
-            {
-              httpMethod: 'DELETE',
-              template: '/user/{user.id}/beta_feature/{beta_feature.id}',
-              input: {
-                templateVariable: [
-                  {
-                    name: 'user.id',
-                    type: 'Integer',
-                  },
-                  {
-                    name: 'beta_feature.id',
-                    type: 'Integer',
-                  },
-                ],
+            ],
+          },
+          {
+            deleteAction: [
+              {
+                httpMethod: 'DELETE',
+                template: '/user/{user.id}/beta_feature/{beta_feature.id}',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'user.id',
+                      type: 'Integer',
+                    },
+                    {
+                      name: 'beta_feature.id',
+                      type: 'Integer',
+                    },
+                  ],
+                },
               },
-            },
-          ],
-        },
-      ])
+            ],
+          },
+        ],
+      })
     })
-    it('active', async () => {
+    it('return object with "active" info', async () => {
       const res = await getActions(
         'https://developer.travis-ci.com/resource/active#Active',
-        'rack.session=123456789',
       )
-      expect(res).toMatchObject([
-        {
-          forOwner: [
-            {
-              httpMethod: 'GET',
-              template: '/owner/github_id/{github_id}/active',
-              input: {
-                templateVariable: [
-                  {
-                    name: 'github_id',
-                    type: 'Unknown',
-                  },
-                ],
-                queryParameter: [
-                  {
-                    name: 'include',
-                    type: '[String]',
-                  },
-                ],
+      expect(res).toMatchObject({
+        title: 'active',
+        actions: [
+          {
+            forOwnerAction: [
+              {
+                httpMethod: 'GET',
+                template: '/owner/github_id/{github_id}/active',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'github_id',
+                      type: 'Unknown',
+                    },
+                  ],
+                  queryParameter: [
+                    {
+                      name: 'include',
+                      type: '[String]',
+                    },
+                  ],
+                },
               },
-            },
-            {
-              httpMethod: 'GET',
-              template: '/owner/{provider}/{login}/active',
-              input: {
-                templateVariable: [
-                  {
-                    name: 'provider',
-                    type: 'Unknown',
-                  },
-                  {
-                    name: 'login',
-                    type: 'Unknown',
-                  },
-                ],
-                queryParameter: [
-                  {
-                    name: 'include',
-                    type: '[String]',
-                  },
-                ],
+              {
+                httpMethod: 'GET',
+                template: '/owner/{provider}/{login}/active',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'provider',
+                      type: 'Unknown',
+                    },
+                    {
+                      name: 'login',
+                      type: 'Unknown',
+                    },
+                  ],
+                  queryParameter: [
+                    {
+                      name: 'include',
+                      type: '[String]',
+                    },
+                  ],
+                },
               },
-            },
-            {
-              httpMethod: 'GET',
-              template: '/owner/{login}/active',
-              input: {
-                templateVariable: [
-                  {
-                    name: 'login',
-                    type: 'Unknown',
-                  },
-                ],
-                queryParameter: [
-                  {
-                    name: 'include',
-                    type: '[String]',
-                  },
-                ],
+              {
+                httpMethod: 'GET',
+                template: '/owner/{login}/active',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'login',
+                      type: 'Unknown',
+                    },
+                  ],
+                  queryParameter: [
+                    {
+                      name: 'include',
+                      type: '[String]',
+                    },
+                  ],
+                },
               },
-            },
-          ],
-        },
-      ])
+            ],
+          },
+        ],
+      })
     })
   })
 })

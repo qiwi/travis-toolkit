@@ -6,7 +6,7 @@ import {
 
 describe('generator', () => {
   describe('generateInputType', () => {
-    it('', () => {
+    it('return correct type with templateVariable and queryParameter', () => {
       expect(
         generateInputType({
           templateVariable: [
@@ -25,12 +25,12 @@ describe('generator', () => {
       ).toBe(
         `
 {
-templateVariable: { login: string },queryParameter: { include: string[] },
+templateVariable: { 'login': string },queryParameter: { 'include': string[] },
 }
 `,
       )
     })
-    it('', () => {
+    it('return correct type with templateVariable', () => {
       const res = generateInputType({
         templateVariable: [
           {
@@ -46,14 +46,14 @@ templateVariable: { login: string },queryParameter: { include: string[] },
       expect(res).toBe(
         `
 {
-templateVariable: { userId: string, beta_featureId: string },
+templateVariable: { 'userId': string, 'beta_featureId': string },
 }
 `,
       )
     })
   })
   describe('generateFunctionBody', () => {
-    it('', () => {
+    it('return correct function body with templateVariable and templateVariable', () => {
       expect(
         generateFunctionBody({
           httpMethod: 'GET',
@@ -79,19 +79,21 @@ templateVariable: { userId: string, beta_featureId: string },
       Object.keys(data.templateVariable).length === 1 &&
       'github_id' in data.templateVariable
     ) {
-      return axios[GET]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
+      return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
         },
-        data: data.templateVariable.acceptedParameter,
-        params: data.templateVariable.queryParameter,
+        // @ts-ignore
+        data: data?.acceptedParameter,
+        // @ts-ignore
+        params: data?.queryParameter,
       })
     }
 `,
       )
     })
-    it('', () => {
+    it('return correct function body with templateVariable', () => {
       const res = generateFunctionBody({
         httpMethod: 'GET',
         template: '/owner/{login}/active',
@@ -116,13 +118,15 @@ templateVariable: { userId: string, beta_featureId: string },
       Object.keys(data.templateVariable).length === 1 &&
       'login' in data.templateVariable
     ) {
-      return axios[GET]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
+      return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
         },
-        data: data.templateVariable.acceptedParameter,
-        params: data.templateVariable.queryParameter,
+        // @ts-ignore
+        data: data?.acceptedParameter,
+        // @ts-ignore
+        params: data?.queryParameter,
       })
     }
 `,
@@ -130,9 +134,9 @@ templateVariable: { userId: string, beta_featureId: string },
     })
   })
   describe('generateFunction', () => {
-    it('active', () => {
+    it('return correct function with "forOwner" action', () => {
       const res = generateFunction({
-        forOwner: [
+        forOwnerAction: [
           {
             httpMethod: 'GET',
             template: '/owner/github_id/{github_id}/active',
@@ -195,17 +199,17 @@ templateVariable: { userId: string, beta_featureId: string },
       })
       expect(res).toBe(
         `
-function forOwner (data: 
+function forOwnerAction (data: 
 {
-templateVariable: { github_id: string },queryParameter: { include: string[] },
+templateVariable: { 'github_id': string },queryParameter: { 'include': string[] },
 }
  | 
 {
-templateVariable: { provider: string, login: string },queryParameter: { include: string[] },
+templateVariable: { 'provider': string, 'login': string },queryParameter: { 'include': string[] },
 }
  | 
 {
-templateVariable: { login: string },queryParameter: { include: string[] },
+templateVariable: { 'login': string },queryParameter: { 'include': string[] },
 }
 ){
           
@@ -213,13 +217,15 @@ templateVariable: { login: string },queryParameter: { include: string[] },
       Object.keys(data.templateVariable).length === 1 &&
       'github_id' in data.templateVariable
     ) {
-      return axios[GET]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
+      return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
         },
-        data: data.templateVariable.acceptedParameter,
-        params: data.templateVariable.queryParameter,
+        // @ts-ignore
+        data: data?.acceptedParameter,
+        // @ts-ignore
+        params: data?.queryParameter,
       })
     }
 
@@ -229,13 +235,15 @@ templateVariable: { login: string },queryParameter: { include: string[] },
       'provider' in data.templateVariable &&
 'login' in data.templateVariable
     ) {
-      return axios[GET]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
+      return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['provider']}/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
         },
-        data: data.templateVariable.acceptedParameter,
-        params: data.templateVariable.queryParameter,
+        // @ts-ignore
+        data: data?.acceptedParameter,
+        // @ts-ignore
+        params: data?.queryParameter,
       })
     }
 
@@ -244,13 +252,15 @@ templateVariable: { login: string },queryParameter: { include: string[] },
       Object.keys(data.templateVariable).length === 1 &&
       'login' in data.templateVariable
     ) {
-      return axios[GET]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
+      return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
         },
-        data: data.templateVariable.acceptedParameter,
-        params: data.templateVariable.queryParameter,
+        // @ts-ignore
+        data: data?.acceptedParameter,
+        // @ts-ignore
+        params: data?.queryParameter,
       })
     }
 
@@ -259,4 +269,12 @@ templateVariable: { login: string },queryParameter: { include: string[] },
       )
     })
   })
+  // describe('generate', () => {
+  //   it('generate correct functions with parsed page "active"', async () => {
+  //     await generates(
+  //       '/Users/m.pismenskiy/project/travis-toolkit/packages/generator/src/main/ts/ppp',
+  //       ' https://developer.travis-ci.com',
+  //     )
+  //   })
+  // })
 })

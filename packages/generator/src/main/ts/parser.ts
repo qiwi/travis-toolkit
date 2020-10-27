@@ -7,9 +7,9 @@ import {
   TParsedPage,
   TTableParametersType,
 } from './types'
-import { normalizeName } from './utils'
+import { normalizeName, toCamelCase } from './utils'
 
-export async function getLinks(baseUrl: string, cookie: string) {
+export async function getLinks(baseUrl: string, cookie = '') {
   const data = await axios.get(baseUrl, {
     headers: {
       Cookie: cookie,
@@ -18,9 +18,10 @@ export async function getLinks(baseUrl: string, cookie: string) {
 
   const links: string[] = []
   const $ = cheerio.load(data.data)
-  $('#sidebar > nav > ul:nth-child(6) > a').each((_, elem) =>
-    links.push(`${baseUrl}${$(elem).attr('href')}`),
-  )
+  $('#sidebar > nav > ul:nth-child(4) > a').each((_, elem) => {
+    return links.push(`${baseUrl}${$(elem).attr('href')}`)
+  })
+
   return links
 }
 
@@ -59,13 +60,15 @@ export function getActionItem(html: string) {
       /(<div class="request">(.|[\r\n])*?(?=<div class="request">))|<div class="request">(.|[\r\n])*/g, // eslint-disable-line
     ) || []
   return {
-    [normalizeName(cheerio.load(html)('h4').text())]: table.map(parseTable),
+    [`${normalizeName(cheerio.load(html)('h4').text())}Action`]: table.map(
+      parseTable,
+    ),
   }
 }
 
 export async function getActions(
   url: string,
-  cookie: string,
+  cookie = '',
 ): Promise<TParsedPage> {
   const { data } = await axios.get(url, {
     headers: {
@@ -73,9 +76,18 @@ export async function getActions(
     },
   })
 
-  const actionsHtml = cheerio.load(data)('body > main > div > div.content')
-  return (
-    actionsHtml.html()?.match(/(<h4>(.|[\r\n])*(?=<h4>))|<h4>(.|[\r\n])*/g) || // eslint-disable-line
-    []
-  ).map(getActionItem)
+  const actionsHtml = cheerio
+    .load(data)('body > main > div > div.content')
+    .html()
+    ?.match(/<a href="#actions" name="actions">(.|[\r\n])*/)?.[0] // eslint-disable-line
+
+  return {
+    title: toCamelCase(
+      cheerio.load(data)('body > main > div > div.content > h2 > a').text(),
+    ),
+    actions: (
+      actionsHtml?.match(/(<h4>(.|[\r\n])*(?=<h4>))|<h4>(.|[\r\n])*/g) || // eslint-disable-line
+      []
+    ).map(getActionItem),
+  }
 }

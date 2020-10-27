@@ -2,9 +2,10 @@ import {
   TActionTableItem,
   TParameter,
   TParsedAction,
+  TParsedPage,
   TTableParametersTypes,
 } from './types'
-import { normalizeName } from './utils'
+import { capitalize } from './utils'
 
 export function generateInputType(input: TTableParametersTypes): string {
   function aggregate(templateName: string, template: string) {
@@ -16,7 +17,7 @@ export function generateInputType(input: TTableParametersTypes): string {
       vars
         ? vars
             .map(({ name, type }) => {
-              return `${name}: ${formatType(type)}`
+              return `'${name}': ${formatType(type)}`
             })
             .join(', ')
         : ''
@@ -27,7 +28,7 @@ export function generateInputType(input: TTableParametersTypes): string {
     input.templateVariable
       ? input.templateVariable
           .map(({ name }) => {
-            return `${normalizeName(name)}: string`
+            return `'${name}': string`
           })
           .join(', ')
       : ''
@@ -53,7 +54,7 @@ ${[
 export function generateUrl(template: string) {
   return template.replace(/{.*?}/g, (str: string) => {
     const parsed = str.slice(1, -1)
-    return `\${data.templateVariable.${parsed}}`
+    return `\${data.templateVariable['${parsed}']}`
   })
 }
 
@@ -67,15 +68,17 @@ export function generateFunctionBody(methodInfo: TActionTableItem): string {
         ?.map((parameter) => `'${parameter.name}' in data.templateVariable`)
         .join(' &&\n')}
     ) {
-      return axios[${
-        methodInfo.httpMethod
-      }]( \`\${baseUrl}/owner/github_id/\${data.templateVariable.github_id}/active\`, {
+      return axios['${methodInfo.httpMethod.toLowerCase()}']( \`\${baseUrl}${generateUrl(
+    methodInfo.template,
+  )}\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
         },
-        data: data.templateVariable.acceptedParameter,
-        params: data.templateVariable.queryParameter,
+        // @ts-ignore
+        data: data?.acceptedParameter,
+        // @ts-ignore
+        params: data?.queryParameter,
       })
     }
 `
@@ -113,4 +116,17 @@ export function formatType(type: string) {
 
   // @ts-ignore
   return `${typeMap[type]}${arrayPrefix}`
+}
+
+export function generate({ title, actions }: TParsedPage) {
+  return `
+import axios from 'axios'
+
+export function generate${capitalize(title)} (baseUrl: string, token: string) {
+  ${actions.map(generateFunction).join('\n')}
+  return {
+    ${actions.map((el) => Object.keys(el)).join(',\n')}
+  }
+}
+`
 }

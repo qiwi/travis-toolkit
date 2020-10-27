@@ -18,4 +18,7 @@ export type TActionTableItem = {
 
 export type TParsedAction = Record<string, TActionTableItem[]>
 
-export type TParsedPage = TParsedAction[]
+export type TParsedPage = {
+  title: string
+  actions: TParsedAction[]
+}
