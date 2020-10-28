@@ -4,6 +4,7 @@ import { getLinks, getActions } from '../../main/ts'
 import getLinksResponse from './stub/getLinks.json'
 import betaFeatureResponse from './stub/betaFeature.json'
 import activeResponse from './stub/active.json'
+import buildResponse from './stub/build.json'
 
 const mock = new MockAdapter(axios)
 mock.onGet('https://developer.travis-ci.com').reply(200, getLinksResponse.data)
@@ -13,6 +14,10 @@ mock
 mock
   .onGet('https://developer.travis-ci.com/resource/active#Active')
   .reply(200, activeResponse.data)
+
+mock
+  .onGet('https://developer.travis-ci.com/resource/build#Build')
+  .reply(200, buildResponse.data)
 
 describe('parser', () => {
   describe('getLinks', () => {
@@ -196,6 +201,92 @@ describe('parser', () => {
             ],
           },
         ],
+      })
+    })
+    it('return object with "build" info', async () => {
+      const res = await getActions(
+        'https://developer.travis-ci.com/resource/build#Build',
+      )
+      expect(res).toMatchObject({
+        actions: [
+          {
+            findAction: [
+              {
+                httpMethod: 'GET',
+                template: '/build/{build.id}',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'build.id',
+                      type: 'Integer',
+                    },
+                  ],
+                  queryParameter: [
+                    {
+                      name: 'include',
+                      type: '[String]',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+          {
+            cancelAction: [
+              {
+                httpMethod: 'POST',
+                template: '/build/{build.id}/cancel',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'build.id',
+                      type: 'Integer',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+          {
+            restartAction: [
+              {
+                httpMethod: 'POST',
+                template: '/build/{build.id}/restart',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'build.id',
+                      type: 'Integer',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+          {
+            priorityAction: [
+              {
+                httpMethod: 'POST',
+                template: '/build/{build.id}/priority',
+                input: {
+                  templateVariable: [
+                    {
+                      name: 'build.id',
+                      type: 'Integer',
+                    },
+                  ],
+                  acceptedParameter: [
+                    {
+                      name: 'build.cancel_all',
+                      type: 'Unknown',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
+        title: 'build',
       })
     })
   })

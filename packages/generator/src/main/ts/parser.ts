@@ -86,7 +86,7 @@ export async function getActions(
       cheerio.load(data)('body > main > div > div.content > h2 > a').text(),
     ),
     actions: (
-      actionsHtml?.match(/(<h4>(.|[\r\n])*(?=<h4>))|<h4>(.|[\r\n])*/g) || // eslint-disable-line
+      actionsHtml?.match(/(<h4>(.|[\r\n])*?(?=<h4>))|<h4>(.|[\r\n])*/g) || // eslint-disable-line
       []
     ).map(getActionItem),
   }

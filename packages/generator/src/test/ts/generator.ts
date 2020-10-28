@@ -78,7 +78,8 @@ templateVariable: { 'userId': string, 'beta_featureId': string },
     if (
       Object.keys(data.templateVariable).length === 1 &&
       'github_id' in data.templateVariable
-    ) {
+    ) { 
+
       return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
@@ -117,7 +118,8 @@ templateVariable: { 'userId': string, 'beta_featureId': string },
     if (
       Object.keys(data.templateVariable).length === 1 &&
       'login' in data.templateVariable
-    ) {
+    ) { 
+
       return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
@@ -216,7 +218,8 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
     if (
       Object.keys(data.templateVariable).length === 1 &&
       'github_id' in data.templateVariable
-    ) {
+    ) { 
+
       return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
@@ -234,7 +237,8 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
       Object.keys(data.templateVariable).length === 2 &&
       'provider' in data.templateVariable &&
 'login' in data.templateVariable
-    ) {
+    ) { 
+
       return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['provider']}/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
@@ -251,7 +255,8 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
     if (
       Object.keys(data.templateVariable).length === 1 &&
       'login' in data.templateVariable
-    ) {
+    ) { 
+
       return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
@@ -269,12 +274,4 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
       )
     })
   })
-  // describe('generate', () => {
-  //   it('generate correct functions with parsed page "active"', async () => {
-  //     await generates(
-  //       '/Users/m.pismenskiy/project/travis-toolkit/packages/generator/src/main/ts/ppp',
-  //       ' https://developer.travis-ci.com',
-  //     )
-  //   })
-  // })
 })

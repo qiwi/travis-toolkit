@@ -5,7 +5,7 @@ import {
   TParsedPage,
   TTableParametersTypes,
 } from './types'
-import { capitalize } from './utils'
+import { unCapitalize } from './utils'
 
 export function generateInputType(input: TTableParametersTypes): string {
   function aggregate(templateName: string, template: string) {
@@ -59,15 +59,22 @@ export function generateUrl(template: string) {
 }
 
 export function generateFunctionBody(methodInfo: TActionTableItem): string {
+  const condition = methodInfo.input.templateVariable
+
   return `
-    if (
+ ${
+   condition
+     ? `   if (
       Object.keys(data.templateVariable).length === ${
         methodInfo.input.templateVariable?.length
       } &&
       ${methodInfo.input.templateVariable
         ?.map((parameter) => `'${parameter.name}' in data.templateVariable`)
         .join(' &&\n')}
-    ) {
+    ) { `
+     : ''
+ }
+
       return axios['${methodInfo.httpMethod.toLowerCase()}']( \`\${baseUrl}${generateUrl(
     methodInfo.template,
   )}\`, {
@@ -80,7 +87,7 @@ export function generateFunctionBody(methodInfo: TActionTableItem): string {
         // @ts-ignore
         params: data?.queryParameter,
       })
-    }
+    ${condition ? '}' : ''}
 `
 }
 
@@ -122,10 +129,12 @@ export function generate({ title, actions }: TParsedPage) {
   return `
 import axios from 'axios'
 
-export function generate${capitalize(title)} (baseUrl: string, token: string) {
+export function ${unCapitalize(title)} (baseUrl: string, token: string) {
   ${actions.map(generateFunction).join('\n')}
   return {
-    ${actions.map((el) => Object.keys(el)).join(',\n')}
+    ${title}: {
+      ${actions.map((el) => Object.keys(el)).join(',\n')}
+    }
   }
 }
 `
