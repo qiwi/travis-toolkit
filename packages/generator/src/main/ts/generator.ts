@@ -59,11 +59,9 @@ export function generateUrl(template: string) {
 }
 
 export function generateFunctionBody(methodInfo: TActionTableItem): string {
-  const condition = methodInfo.input.templateVariable
-
   return `
  ${
-   condition
+   methodInfo.input.templateVariable
      ? `   if (
       Object.keys(data.templateVariable).length === ${
         methodInfo.input.templateVariable?.length
