@@ -1,5 +1,5 @@
 import { generateOpenapi } from '../../main/ts'
-import swagger from '../ts/stub/swagger.json'
+import openapi from '../ts/stub/openapi.json'
 
 describe('', () => {
   it('', async () => {
@@ -87,6 +87,6 @@ describe('', () => {
       },
     ])
 
-    expect(res).toMatchObject(swagger)
+    expect(res).toMatchObject(openapi)
   })
 })

@@ -1,0 +1,107 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "travis-ci api",
+    "version": "3.0.0"
+  },
+  "paths": {
+    "/build/{buildid}": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "buildid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/build/{buildid}/cancel": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "buildid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/build/{buildid}/restart": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "buildid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/build/{buildid}/priority": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "buildid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "build.cancel_all": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
