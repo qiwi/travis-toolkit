@@ -2,6 +2,7 @@
   "collectCoverage": true,
   "testEnvironment": "node",
   "projects": [
-    "<rootDir>/packages/generator/jest.config.json"
+    "<rootDir>/packages/generator/jest.config.json",
+    "<rootDir>/packages/native/jest.config.json"
   ]
 }
