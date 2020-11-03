@@ -4,7 +4,8 @@
     "baseUrl": "./packages",
     "paths": {
       "@qiwi/travis-generator": ["./generator/src/main/ts"],
-      "@qiwi/travis-native": ["./native/src/main/ts"],
+      "@qiwi/travis-openapi": ["./openapi/src/main/json"],
+      "@qiwi/travis-native": ["./native/src/main/ts"]
     }
   }
 }

@@ -7,7 +7,7 @@ export function capitalize(str: string) {
 }
 
 export function normalizeName(name: string) {
-  return unCapitalize(name.replace(/[\s(),./`-]/g, ''))
+  return unCapitalize(name.replace(/[\s(),.`-]/g, ''))
 }
 
 export function toCamelCase(str: string) {

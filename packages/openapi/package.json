@@ -1,0 +1,47 @@
+{
+  "name": "@qiwi/travis-openapi",
+  "version": "0.0.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "openapi definition",
+  "keywords": [],
+  "main": "target/es5/index.js",
+  "source": "target/ts/index.ts",
+  "types": "target/es5/index.d.ts",
+  "typescript": {
+    "definition": "target/es5/index.d.ts"
+  },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "target",
+    "typings",
+    "flow-typed"
+  ],
+  "scripts": {
+    "build": "mkdir -p target/json/ && cp -r src/main/json/ target/json/"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "devDependencies": {
+    "@qiwi/substrate": "^1.19.1",
+    "@types/cheerio": "^0.22.22",
+    "axios-mock-adapter": "^1.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiwi/travis-toolkit.git"
+  },
+  "author": "Anton Golub <mailbox@antongolub.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qiwi/travis-toolkit/issues"
+  },
+  "homepage": "https://github.com/qiwi/travis-toolkit/#readme"
+}
