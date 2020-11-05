@@ -4,7 +4,7 @@ import {
   generateFunctionBody,
   generateInputType,
 } from './generator'
-import { generate as parseAndGenerateOpenapi, generateOpenapi } from './openapi'
+import { generateOpenapi, parseAndGenerateOpenapi } from './openapi'
 import { getActions, getLinks } from './parser'
 
 export {

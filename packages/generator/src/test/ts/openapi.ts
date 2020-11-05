@@ -1,8 +1,8 @@
 import { generateOpenapi } from '../../main/ts'
 import openapi from '../ts/stub/openapi.json'
 
-describe('', () => {
-  it('', async () => {
+describe('generateOpenapi', () => {
+  it('generates correct json', async () => {
     const res = generateOpenapi([
       {
         actions: [

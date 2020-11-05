@@ -7,12 +7,8 @@
   },
   "description": "openapi definition",
   "keywords": [],
-  "main": "target/es5/index.js",
-  "source": "target/ts/index.ts",
-  "types": "target/es5/index.d.ts",
-  "typescript": {
-    "definition": "target/es5/index.d.ts"
-  },
+  "main": "target/json/openapi.json",
+  "source": "target/json/openapi.json",
   "files": [
     "README.md",
     "CHANGELOG.md",
@@ -30,9 +26,7 @@
   "peerDependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
-    "@qiwi/substrate": "^1.19.1",
-    "@types/cheerio": "^0.22.22",
-    "axios-mock-adapter": "^1.18.2"
+    "@qiwi/substrate": "^1.19.1"
   },
   "repository": {
     "type": "git",

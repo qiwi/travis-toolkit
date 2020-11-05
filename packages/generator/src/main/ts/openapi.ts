@@ -71,12 +71,11 @@ export function generateOpenapi(data: TParsedPage[]): OpenAPIV3.Document {
     openapi: '3.0.0',
     info: {
       title: 'travis-ci api',
-      version: '3.0.0',
+      version: '1.0.0',
     },
     paths: data
-      .flatMap((el) => el.actions)
-      .flatMap((el) => Object.values(el))
-      .flat()
+      .flatMap((el) => el.actions) // TParsedPage[] => TParsedAction[]
+      .flatMap((el) => Object.values(el).flat()) // TParsedAction[] => TActionTableItem[]
       .map(({ httpMethod, template, input }) => ({
         [normalizeName(template)]: {
           [httpMethod.toLowerCase()]: {
@@ -99,7 +98,10 @@ export function generateOpenapi(data: TParsedPage[]): OpenAPIV3.Document {
   }
 }
 
-export async function generate(baseUrl: string, cookie?: string) {
+export async function parseAndGenerateOpenapi(
+  baseUrl: string,
+  cookie?: string,
+) {
   const links = await getLinks(baseUrl, cookie)
   const res = await Promise.all(links.map((str) => getActions(str, '')))
 
