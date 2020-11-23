@@ -20,6 +20,7 @@ export async function generates(
   const res = await Promise.all(links.map((str) => getActions(str, '')))
 
   await Promise.all(
+    // eslint-disable-next-line array-callback-return
     res.map(({ title, actions }) => {
       fs.writeFile(`${path}/${title}.ts`, generate({ title, actions }))
     }),
