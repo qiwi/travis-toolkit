@@ -32,13 +32,13 @@ export function user(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/user/${data.templateVariable['user.id']}/sync`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -62,16 +62,19 @@ export function user(baseUrl: string, token: string) {
   function updateAction(data: {
     acceptedParameter: { 'user.utm_params': any }
   }) {
-    return axios['patch'](`${baseUrl}/user`, {
-      headers: {
-        'Travis-API-Version': 3,
-        Authorization: `${token}`,
+    return axios['patch'](
+      `${baseUrl}/user`,
+      // @ts-ignore
+      data?.acceptedParameter,
+      {
+        headers: {
+          'Travis-API-Version': 3,
+          Authorization: `${token}`,
+        },
+        // @ts-ignore
+        params: data?.queryParameter,
       },
-      // @ts-ignore
-      data: data?.acceptedParameter,
-      // @ts-ignore
-      params: data?.queryParameter,
-    })
+    )
   }
 
   function logoutAction(data: { queryParameter: { include: string[] } }) {

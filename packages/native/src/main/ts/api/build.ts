@@ -32,13 +32,13 @@ export function build(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/build/${data.templateVariable['build.id']}/cancel`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -53,13 +53,13 @@ export function build(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/build/${data.templateVariable['build.id']}/restart`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -77,13 +77,13 @@ export function build(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/build/${data.templateVariable['build.id']}/priority`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },

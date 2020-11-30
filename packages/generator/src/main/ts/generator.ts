@@ -61,6 +61,35 @@ export function generateUrl(template: string) {
   })
 }
 
+function generateGetAndDeleteBody(method: string, template: string) {
+  return `return axios['${method}']( \`\${baseUrl}${generateUrl(template)}\`, {
+        headers: {
+          'Travis-API-Version': 3,
+          Authorization: \`\${token}\`
+        },
+        // @ts-ignore
+        data: data?.acceptedParameter,
+        // @ts-ignore
+        params: data?.queryParameter,
+      })
+    `
+}
+
+function generatePostAndPathBody(method: string, template: string) {
+  return `return axios['${method}']( \`\${baseUrl}${generateUrl(template)}\`,
+  // @ts-ignore
+  data?.acceptedParameter,
+  {
+        headers: {
+          'Travis-API-Version': 3,
+          Authorization: \`\${token}\`
+        },
+        // @ts-ignore
+        params: data?.queryParameter,
+      })
+    `
+}
+
 export function generateFunctionBody(methodInfo: TActionTableItem): string {
   const condition = methodInfo.input.templateVariable
 
@@ -78,19 +107,19 @@ export function generateFunctionBody(methodInfo: TActionTableItem): string {
      : ''
  }
 
-      return axios['${methodInfo.httpMethod.toLowerCase()}']( \`\${baseUrl}${generateUrl(
-    methodInfo.template,
-  )}\`, {
-        headers: {
-          'Travis-API-Version': 3,
-          Authorization: \`\${token}\`
-        },
-        // @ts-ignore
-        data: data?.acceptedParameter,
-        // @ts-ignore
-        params: data?.queryParameter,
-      })
-    ${condition ? '}' : ''}
+  ${
+    methodInfo.httpMethod.toLowerCase() === 'get' ||
+    methodInfo.httpMethod.toLowerCase() === 'delete'
+      ? generateGetAndDeleteBody(
+          methodInfo.httpMethod.toLowerCase(),
+          methodInfo.template,
+        )
+      : generatePostAndPathBody(
+          methodInfo.httpMethod.toLowerCase(),
+          methodInfo.template,
+        )
+  }
+${condition ? '}' : ''}
 `
 }
 

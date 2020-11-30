@@ -1,5 +1,7 @@
 import { UnionToIntersection } from '@qiwi/substrate'
 import { active } from './api/active'
+import { executions } from './api/executions'
+import { allowance } from './api/allowance'
 import { betaFeature } from './api/betaFeature'
 import { betaFeatures } from './api/betaFeatures'
 import { betaMigration_request } from './api/betaMigration_request'
@@ -12,7 +14,6 @@ import { builds } from './api/builds'
 import { caches } from './api/caches'
 import { cron } from './api/cron'
 import { crons } from './api/crons'
-import { emailSubscription } from './api/emailSubscription'
 import { envVar } from './api/envVar'
 import { envVars } from './api/envVars'
 import { installation } from './api/installation'
@@ -20,7 +21,6 @@ import { job } from './api/job'
 import { jobs } from './api/jobs'
 import { keyPair } from './api/keyPair'
 import { keyPairgenerated } from './api/keyPairgenerated'
-import { lint } from './api/lint'
 import { log } from './api/log'
 import { messages } from './api/messages'
 import { organization } from './api/organization'
@@ -51,7 +51,6 @@ const plugins = [
   caches,
   cron,
   crons,
-  emailSubscription,
   envVar,
   envVars,
   installation,
@@ -59,7 +58,6 @@ const plugins = [
   jobs,
   keyPair,
   keyPairgenerated,
-  lint,
   log,
   messages,
   organization,
@@ -75,6 +73,8 @@ const plugins = [
   settings,
   stages,
   user,
+  executions,
+  allowance,
 ]
 
 export function generateClient(baseUrl: string, token: string) {

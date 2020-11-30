@@ -35,13 +35,13 @@ export function organization(baseUrl: string, token: string) {
     ) {
       return axios['patch'](
         `${baseUrl}/org/${data.templateVariable['organization.id']}/update_billing_permission`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },

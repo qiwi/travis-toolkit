@@ -29,13 +29,13 @@ export function job(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/job/${data.templateVariable['job.id']}/cancel`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -50,13 +50,13 @@ export function job(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/job/${data.templateVariable['job.id']}/restart`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -71,13 +71,13 @@ export function job(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/job/${data.templateVariable['job.id']}/debug`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },

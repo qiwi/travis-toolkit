@@ -15,13 +15,13 @@ export function betaFeature(baseUrl: string, token: string) {
     ) {
       return axios['patch'](
         `${baseUrl}/user/${data.templateVariable['user.id']}/beta_feature/${data.templateVariable['beta_feature.id']}`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
