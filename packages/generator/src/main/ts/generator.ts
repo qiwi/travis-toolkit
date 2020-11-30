@@ -1,3 +1,6 @@
+import { promises as fs } from 'fs'
+
+import { getActions, getLinks } from './parser'
 import {
   TActionTableItem,
   TParameter,
@@ -138,4 +141,19 @@ export function ${unCapitalize(title)} (baseUrl: string, token: string) {
   }
 }
 `
+}
+
+export async function generates(
+  path: string,
+  baseUrl: string,
+  cookie?: string,
+) {
+  const links = await getLinks(baseUrl, cookie)
+  const res = await Promise.all(links.map((str) => getActions(str, '')))
+
+  await Promise.all(
+    res.map(({ title, actions }) => {
+      fs.writeFile(`${path}/${title}.ts`, generate({ title, actions }))
+    }),
+  )
 }

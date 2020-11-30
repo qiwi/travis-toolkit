@@ -1,4 +1,4 @@
-{
+ {
   "name": "@qiwi/travis-generator",
   "version": "1.1.1",
   "private": false,
@@ -45,7 +45,8 @@
   "optionalDependencies": {},
   "devDependencies": {
     "@types/cheerio": "^0.22.22",
-    "axios-mock-adapter": "^1.18.2"
+    "axios-mock-adapter": "^1.18.2",
+    "openapi-types": "^7.0.1"
   },
   "repository": {
     "type": "git",

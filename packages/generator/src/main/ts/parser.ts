@@ -91,3 +91,8 @@ export async function getActions(
     ).map(getActionItem),
   }
 }
+
+export async function parseAll(baseUrl: string, cookie = '') {
+  const links = await getLinks(baseUrl, cookie)
+  return Promise.all(links.map((str) => getActions(str, '')))
+}
