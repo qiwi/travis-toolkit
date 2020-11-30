@@ -1,23 +1,47 @@
 import axios from 'axios'
 
-export function log(baseUrl: string, token: string) {
-  function findAction(
+export function allowance(baseUrl: string, token: string) {
+  function forOwnerAction(
     data:
       | {
-          templateVariable: { 'job.id': string }
-          queryParameter: { include: string[]; 'log.token': any }
+          templateVariable: { github_id: string }
+          queryParameter: { include: string[] }
         }
       | {
-          templateVariable: { 'job.id': string }
-          queryParameter: { include: string[]; 'log.token': any }
+          templateVariable: { provider: string; login: string }
+          queryParameter: { include: string[] }
+        }
+      | {
+          templateVariable: { login: string }
+          queryParameter: { include: string[] }
         },
   ) {
     if (
       Object.keys(data.templateVariable).length === 1 &&
-      'job.id' in data.templateVariable
+      'github_id' in data.templateVariable
     ) {
       return axios['get'](
-        `${baseUrl}/job/${data.templateVariable['job.id']}/log`,
+        `${baseUrl}/owner/github_id/${data.templateVariable['github_id']}/allowance`,
+        {
+          headers: {
+            'Travis-API-Version': 3,
+            Authorization: `${token}`,
+          },
+          // @ts-ignore
+          data: data?.acceptedParameter,
+          // @ts-ignore
+          params: data?.queryParameter,
+        },
+      )
+    }
+
+    if (
+      Object.keys(data.templateVariable).length === 2 &&
+      'provider' in data.templateVariable &&
+      'login' in data.templateVariable
+    ) {
+      return axios['get'](
+        `${baseUrl}/owner/${data.templateVariable['provider']}/${data.templateVariable['login']}/allowance`,
         {
           headers: {
             'Travis-API-Version': 3,
@@ -33,31 +57,10 @@ export function log(baseUrl: string, token: string) {
 
     if (
       Object.keys(data.templateVariable).length === 1 &&
-      'job.id' in data.templateVariable
+      'login' in data.templateVariable
     ) {
       return axios['get'](
-        `${baseUrl}/job/${data.templateVariable['job.id']}/log.txt`,
-        {
-          headers: {
-            'Travis-API-Version': 3,
-            Authorization: `${token}`,
-          },
-          // @ts-ignore
-          data: data?.acceptedParameter,
-          // @ts-ignore
-          params: data?.queryParameter,
-        },
-      )
-    }
-  }
-
-  function deleteAction(data: { templateVariable: { 'job.id': string } }) {
-    if (
-      Object.keys(data.templateVariable).length === 1 &&
-      'job.id' in data.templateVariable
-    ) {
-      return axios['delete'](
-        `${baseUrl}/job/${data.templateVariable['job.id']}/log`,
+        `${baseUrl}/owner/${data.templateVariable['login']}/allowance`,
         {
           headers: {
             'Travis-API-Version': 3,
@@ -73,9 +76,8 @@ export function log(baseUrl: string, token: string) {
   }
 
   return {
-    log: {
-      findAction,
-      deleteAction,
+    allowance: {
+      forOwnerAction,
     },
   }
 }

@@ -80,7 +80,7 @@ templateVariable: { 'userId': string, 'beta_featureId': string },
       'github_id' in data.templateVariable
     ) { 
 
-      return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
+  return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
@@ -90,7 +90,8 @@ templateVariable: { 'userId': string, 'beta_featureId': string },
         // @ts-ignore
         params: data?.queryParameter,
       })
-    }
+    
+}
 `,
       )
     })
@@ -120,7 +121,7 @@ templateVariable: { 'userId': string, 'beta_featureId': string },
       'login' in data.templateVariable
     ) { 
 
-      return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
+  return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
@@ -130,7 +131,8 @@ templateVariable: { 'userId': string, 'beta_featureId': string },
         // @ts-ignore
         params: data?.queryParameter,
       })
-    }
+    
+}
 `,
       )
     })
@@ -220,7 +222,7 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
       'github_id' in data.templateVariable
     ) { 
 
-      return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
+  return axios['get']( \`\${baseUrl}/owner/github_id/\${data.templateVariable['github_id']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
@@ -230,7 +232,8 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
         // @ts-ignore
         params: data?.queryParameter,
       })
-    }
+    
+}
 
 
     if (
@@ -239,7 +242,7 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
 'login' in data.templateVariable
     ) { 
 
-      return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['provider']}/\${data.templateVariable['login']}/active\`, {
+  return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['provider']}/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
@@ -249,7 +252,8 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
         // @ts-ignore
         params: data?.queryParameter,
       })
-    }
+    
+}
 
 
     if (
@@ -257,7 +261,7 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
       'login' in data.templateVariable
     ) { 
 
-      return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
+  return axios['get']( \`\${baseUrl}/owner/\${data.templateVariable['login']}/active\`, {
         headers: {
           'Travis-API-Version': 3,
           Authorization: \`\${token}\`
@@ -267,7 +271,8 @@ templateVariable: { 'login': string },queryParameter: { 'include': string[] },
         // @ts-ignore
         params: data?.queryParameter,
       })
-    }
+    
+}
 
         }
 `,

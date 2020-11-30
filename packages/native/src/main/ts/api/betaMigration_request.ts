@@ -11,13 +11,13 @@ export function betaMigration_request(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/user/${data.templateVariable['user.id']}/beta_migration_request`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },

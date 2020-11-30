@@ -11,6 +11,7 @@ export function envVar(baseUrl: string, token: string) {
           }
           queryParameter: {
             'env_var.id': string
+            id: string
             include: string[]
             'repository.id': number
           }
@@ -23,6 +24,7 @@ export function envVar(baseUrl: string, token: string) {
           }
           queryParameter: {
             'env_var.id': string
+            id: string
             include: string[]
             'repository.id': number
           }
@@ -31,6 +33,7 @@ export function envVar(baseUrl: string, token: string) {
           templateVariable: { 'repository.id': string; 'env_var.id': string }
           queryParameter: {
             'env_var.id': string
+            id: string
             include: string[]
             'repository.id': number
           }
@@ -182,13 +185,13 @@ export function envVar(baseUrl: string, token: string) {
     ) {
       return axios['patch'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/env_var/${data.templateVariable['env_var.id']}`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -203,13 +206,13 @@ export function envVar(baseUrl: string, token: string) {
     ) {
       return axios['patch'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/env_var/${data.templateVariable['env_var.id']}`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -223,13 +226,13 @@ export function envVar(baseUrl: string, token: string) {
     ) {
       return axios['patch'](
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/env_var/${data.templateVariable['env_var.id']}`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -243,13 +246,13 @@ export function envVar(baseUrl: string, token: string) {
     ) {
       return axios['patch'](
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/env_var/${data.templateVariable['env_var.id']}`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },

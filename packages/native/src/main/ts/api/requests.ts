@@ -157,13 +157,13 @@ export function requests(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/requests`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -177,13 +177,13 @@ export function requests(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/requests`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -196,13 +196,13 @@ export function requests(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/requests`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -215,13 +215,13 @@ export function requests(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/requests`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },

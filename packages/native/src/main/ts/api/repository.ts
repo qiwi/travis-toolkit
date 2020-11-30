@@ -121,13 +121,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/activate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -141,13 +141,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/activate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -160,13 +160,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/activate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -179,13 +179,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/activate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -215,13 +215,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/deactivate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -235,13 +235,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/deactivate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -254,13 +254,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/deactivate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -273,13 +273,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/deactivate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -309,13 +309,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/migrate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -329,13 +329,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/migrate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -348,13 +348,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/migrate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -367,13 +367,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/migrate`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -403,13 +403,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/star`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -423,13 +423,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/star`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -442,13 +442,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/star`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -461,13 +461,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/star`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -497,13 +497,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/unstar`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -517,13 +517,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/unstar`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -536,13 +536,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/unstar`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
@@ -555,13 +555,13 @@ export function repository(baseUrl: string, token: string) {
     ) {
       return axios['post'](
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/unstar`,
+        // @ts-ignore
+        data?.acceptedParameter,
         {
           headers: {
             'Travis-API-Version': 3,
             Authorization: `${token}`,
           },
-          // @ts-ignore
-          data: data?.acceptedParameter,
           // @ts-ignore
           params: data?.queryParameter,
         },
