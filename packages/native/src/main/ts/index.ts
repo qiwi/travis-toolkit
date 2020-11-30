@@ -80,6 +80,6 @@ const plugins = [
 export function generateClient(baseUrl: string, token: string) {
   return plugins.reduce((acc, el) => {
     const data = el(baseUrl, token)
-    return {...acc, ...data}
+    return { ...acc, ...data }
   }, {} as UnionToIntersection<ReturnType<typeof plugins[number]>>)
 }

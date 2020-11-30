@@ -12,9 +12,7 @@ export function formatType(type: string) {
     Boolean: 'boolean',
   }
 
-  const arrayPrefix =
-    type[0] === '[' && type[type.length - 1] === ']' ? '[]' : ''
-  if (arrayPrefix) {
+  if (type[0] === '[' && type[type.length - 1] === ']' ? '[]' : '') {
     type = type.slice(1, -1)
   }
 

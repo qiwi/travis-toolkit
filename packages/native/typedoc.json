@@ -10,6 +10,5 @@
   "moduleResolution": "node",
   "module": "commonjs",
   "hideGenerator": true,
-  "readme": "none",
-  "ignoreCompilerErrors": true
+  "readme": "none"
 }
