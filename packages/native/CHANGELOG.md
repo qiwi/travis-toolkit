@@ -1,3 +1,15 @@
+# @qiwi/travis-native [1.2.0](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-native@1.1.0...@qiwi/travis-native@1.2.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* up deps, fix vuls ([b03daac](https://github.com/qiwi/travis-toolkit/commit/b03daac9bc68346f4df069137c23055dd0286381))
+
+
+### Features
+
+* update generator ([ecdd4e2](https://github.com/qiwi/travis-toolkit/commit/ecdd4e298f70a8800d2e1d4bd127efbad8bc10e7))
+
 # @qiwi/travis-native [1.1.0](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-native@1.0.1...@qiwi/travis-native@1.1.0) (2020-11-30)
 
 
