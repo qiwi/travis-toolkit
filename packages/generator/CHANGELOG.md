@@ -1,3 +1,15 @@
+# @qiwi/travis-generator [1.3.0](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-generator@1.2.0...@qiwi/travis-generator@1.3.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* up deps, fix vuls ([b03daac](https://github.com/qiwi/travis-toolkit/commit/b03daac9bc68346f4df069137c23055dd0286381))
+
+
+### Features
+
+* update generator ([ecdd4e2](https://github.com/qiwi/travis-toolkit/commit/ecdd4e298f70a8800d2e1d4bd127efbad8bc10e7))
+
 # @qiwi/travis-generator [1.2.0](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-generator@1.1.1...@qiwi/travis-generator@1.2.0) (2020-11-30)
 
 
