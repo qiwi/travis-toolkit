@@ -20,13 +20,13 @@
     "build": "mkdir -p target/json/ && cp -r src/main/json/ target/json/"
   },
   "dependencies": {
-    "axios": "^0.20.0",
-    "cheerio": "^1.0.0-rc.3"
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.6"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
-    "@qiwi/substrate": "^1.19.1"
+    "@qiwi/substrate": "^1.20.7"
   },
   "repository": {
     "type": "git",

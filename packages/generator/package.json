@@ -33,20 +33,20 @@
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
     "build:ts": "cp -r src/main/ts/ target/ts/",
     "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
-    "docs": "typedoc --readme README.md --tsconfig tsconfig.es5.json src/main",
+    "docs": "typedoc",
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "axios": "^0.20.0",
-    "cheerio": "^1.0.0-rc.3"
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.6"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
-    "@types/cheerio": "^0.22.22",
-    "axios-mock-adapter": "^1.18.2",
-    "openapi-types": "^7.0.1"
+    "@types/cheerio": "^0.22.28",
+    "axios-mock-adapter": "^1.19.0",
+    "openapi-types": "^8.0.0"
   },
   "repository": {
     "type": "git",
