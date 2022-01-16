@@ -29,7 +29,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/key_pair/generated`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -49,7 +49,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/key_pair/generated`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -68,7 +68,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/key_pair/generated`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -87,7 +87,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/key_pair/generated`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -125,7 +125,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -145,7 +145,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -164,7 +164,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -183,7 +183,7 @@ export function keyPairgenerated(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

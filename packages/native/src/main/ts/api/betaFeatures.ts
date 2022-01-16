@@ -13,7 +13,7 @@ export function betaFeatures(baseUrl: string, token: string) {
         `${baseUrl}/user/${data.templateVariable['user.id']}/beta_features`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

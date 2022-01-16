@@ -29,7 +29,7 @@ export function settings(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/settings`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -49,7 +49,7 @@ export function settings(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/settings`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -68,7 +68,7 @@ export function settings(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/settings`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -87,7 +87,7 @@ export function settings(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/settings`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

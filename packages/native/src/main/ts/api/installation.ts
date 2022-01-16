@@ -13,7 +13,7 @@ export function installation(baseUrl: string, token: string) {
         `${baseUrl}/installation/${data.templateVariable['installation.github_id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
