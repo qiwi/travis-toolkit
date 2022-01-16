@@ -21,9 +21,8 @@
     "flow-typed"
   ],
   "scripts": {
-    "test": "yarn lint && yarn test:spec",
-    "test:spec": "yarn jest",
-    "jest": "jest -w=1 --config=jest.config.json",
+    "test": "yarn test:spec",
+    "test:spec": "yarn jest -w=1 --config=jest.config.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint 'src/main/ts/**/*.ts'",
     "lint:fix": "yarn lint --fix",

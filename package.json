@@ -12,7 +12,7 @@
     "build": "lerna run build --stream --concurrency 2",
     "bootstrap": "lerna bootstrap",
     "test:unit": "jest",
-    "test:report": "yarn test && yarn coveralls:push",
+    "test:report": "yarn lint && yarn test && yarn coveralls:push",
     "pretest": "yarn lint",
     "test": "yarn test:unit",
     "lint": "lerna run lint",
