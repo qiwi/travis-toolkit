@@ -13,7 +13,7 @@ export function preferences(baseUrl: string, token: string) {
         `${baseUrl}/org/${data.templateVariable['organization.id']}/preferences`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -28,7 +28,7 @@ export function preferences(baseUrl: string, token: string) {
   function forUserAction(data: { queryParameter: { include: string[] } }) {
     return axios['get'](`${baseUrl}/preferences`, {
       headers: {
-        'Travis-API-Version': 3,
+        'Travis-API-Version': '3',
         Authorization: `${token}`,
       },
       // @ts-ignore

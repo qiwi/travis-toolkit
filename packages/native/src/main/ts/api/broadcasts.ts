@@ -10,7 +10,7 @@ export function broadcasts(baseUrl: string, token: string) {
   }) {
     return axios['get'](`${baseUrl}/broadcasts`, {
       headers: {
-        'Travis-API-Version': 3,
+        'Travis-API-Version': '3',
         Authorization: `${token}`,
       },
       // @ts-ignore

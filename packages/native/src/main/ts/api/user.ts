@@ -13,7 +13,7 @@ export function user(baseUrl: string, token: string) {
         `${baseUrl}/user/${data.templateVariable['user.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -36,7 +36,7 @@ export function user(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -49,7 +49,7 @@ export function user(baseUrl: string, token: string) {
   function currentAction(data: { queryParameter: { include: string[] } }) {
     return axios['get'](`${baseUrl}/user`, {
       headers: {
-        'Travis-API-Version': 3,
+        'Travis-API-Version': '3',
         Authorization: `${token}`,
       },
       // @ts-ignore
@@ -68,7 +68,7 @@ export function user(baseUrl: string, token: string) {
       data?.acceptedParameter,
       {
         headers: {
-          'Travis-API-Version': 3,
+          'Travis-API-Version': '3',
           Authorization: `${token}`,
         },
         // @ts-ignore
@@ -80,7 +80,7 @@ export function user(baseUrl: string, token: string) {
   function logoutAction(data: { queryParameter: { include: string[] } }) {
     return axios['get'](`${baseUrl}/logout`, {
       headers: {
-        'Travis-API-Version': 3,
+        'Travis-API-Version': '3',
         Authorization: `${token}`,
       },
       // @ts-ignore

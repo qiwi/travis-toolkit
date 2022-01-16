@@ -64,7 +64,7 @@ export function generateUrl(template: string) {
 function generateGetAndDeleteBody(method: string, template: string) {
   return `return axios['${method}']( \`\${baseUrl}${generateUrl(template)}\`, {
         headers: {
-          'Travis-API-Version': 3,
+          'Travis-API-Version': '3',
           Authorization: \`\${token}\`
         },
         // @ts-ignore
@@ -81,7 +81,7 @@ function generatePostAndPathBody(method: string, template: string) {
   data?.acceptedParameter,
   {
         headers: {
-          'Travis-API-Version': 3,
+          'Travis-API-Version': '3',
           Authorization: \`\${token}\`
         },
         // @ts-ignore
@@ -181,8 +181,8 @@ export async function generates(
   const res = await Promise.all(links.map((str) => getActions(str, '')))
 
   await Promise.all(
-    res.map(({ title, actions }) => {
+    res.map(({ title, actions }) =>
       fs.writeFile(`${path}/${title}.ts`, generate({ title, actions }))
-    }),
+    ),
   )
 }

@@ -13,7 +13,7 @@ export function jobs(baseUrl: string, token: string) {
         `${baseUrl}/build/${data.templateVariable['build.id']}/jobs`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -41,7 +41,7 @@ export function jobs(baseUrl: string, token: string) {
   }) {
     return axios['get'](`${baseUrl}/jobs`, {
       headers: {
-        'Travis-API-Version': 3,
+        'Travis-API-Version': '3',
         Authorization: `${token}`,
       },
       // @ts-ignore

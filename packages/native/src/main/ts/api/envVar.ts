@@ -57,7 +57,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -78,7 +78,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -98,7 +98,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -118,7 +118,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -189,7 +189,7 @@ export function envVar(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -210,7 +210,7 @@ export function envVar(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -230,7 +230,7 @@ export function envVar(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -250,7 +250,7 @@ export function envVar(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -293,7 +293,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -314,7 +314,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -334,7 +334,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -354,7 +354,7 @@ export function envVar(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/env_var/${data.templateVariable['env_var.id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

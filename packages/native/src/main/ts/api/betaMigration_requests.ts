@@ -13,7 +13,7 @@ export function betaMigration_requests(baseUrl: string, token: string) {
         `${baseUrl}/user/${data.templateVariable['user.id']}/beta_migration_requests`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

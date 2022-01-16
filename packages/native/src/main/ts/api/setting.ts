@@ -41,7 +41,7 @@ export function setting(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/setting/${data.templateVariable['setting.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -62,7 +62,7 @@ export function setting(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/setting/${data.templateVariable['setting.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -82,7 +82,7 @@ export function setting(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/setting/${data.templateVariable['setting.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -102,7 +102,7 @@ export function setting(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/setting/${data.templateVariable['setting.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -156,7 +156,7 @@ export function setting(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -177,7 +177,7 @@ export function setting(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -197,7 +197,7 @@ export function setting(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -217,7 +217,7 @@ export function setting(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

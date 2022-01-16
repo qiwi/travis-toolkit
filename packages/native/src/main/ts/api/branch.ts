@@ -38,7 +38,7 @@ export function branch(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.id']}/branch/${data.templateVariable['branch.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -59,7 +59,7 @@ export function branch(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['provider']}/${data.templateVariable['repository.slug']}/branch/${data.templateVariable['branch.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -79,7 +79,7 @@ export function branch(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.id']}/branch/${data.templateVariable['branch.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -99,7 +99,7 @@ export function branch(baseUrl: string, token: string) {
         `${baseUrl}/repo/${data.templateVariable['repository.slug']}/branch/${data.templateVariable['branch.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

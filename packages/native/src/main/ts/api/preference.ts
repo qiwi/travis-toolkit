@@ -14,7 +14,7 @@ export function preference(baseUrl: string, token: string) {
         `${baseUrl}/org/${data.templateVariable['organization.id']}/preference/${data.templateVariable['preference.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -51,7 +51,7 @@ export function preference(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -70,7 +70,7 @@ export function preference(baseUrl: string, token: string) {
         data?.acceptedParameter,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -92,7 +92,7 @@ export function preference(baseUrl: string, token: string) {
         `${baseUrl}/preference/${data.templateVariable['preference.name']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

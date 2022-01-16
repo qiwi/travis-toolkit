@@ -54,7 +54,7 @@ export function executions(baseUrl: string, token: string) {
         `${baseUrl}/owner/github_id/${data.templateVariable['github_id']}/executions`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -74,7 +74,7 @@ export function executions(baseUrl: string, token: string) {
         `${baseUrl}/owner/${data.templateVariable['provider']}/${data.templateVariable['login']}/executions`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -93,7 +93,7 @@ export function executions(baseUrl: string, token: string) {
         `${baseUrl}/owner/${data.templateVariable['login']}/executions`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

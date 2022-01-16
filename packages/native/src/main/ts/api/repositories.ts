@@ -69,7 +69,7 @@ export function repositories(baseUrl: string, token: string) {
         `${baseUrl}/owner/github_id/${data.templateVariable['github_id']}/repos`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -89,7 +89,7 @@ export function repositories(baseUrl: string, token: string) {
         `${baseUrl}/owner/${data.templateVariable['provider']}/${data.templateVariable['login']}/repos`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -108,7 +108,7 @@ export function repositories(baseUrl: string, token: string) {
         `${baseUrl}/owner/${data.templateVariable['login']}/repos`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -140,7 +140,7 @@ export function repositories(baseUrl: string, token: string) {
   }) {
     return axios['get'](`${baseUrl}/repos`, {
       headers: {
-        'Travis-API-Version': 3,
+        'Travis-API-Version': '3',
         Authorization: `${token}`,
       },
       // @ts-ignore

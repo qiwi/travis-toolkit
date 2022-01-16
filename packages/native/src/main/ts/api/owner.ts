@@ -24,7 +24,7 @@ export function owner(baseUrl: string, token: string) {
         `${baseUrl}/owner/github_id/${data.templateVariable['github_id']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -44,7 +44,7 @@ export function owner(baseUrl: string, token: string) {
         `${baseUrl}/owner/${data.templateVariable['provider']}/${data.templateVariable['login']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -63,7 +63,7 @@ export function owner(baseUrl: string, token: string) {
         `${baseUrl}/owner/${data.templateVariable['login']}`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

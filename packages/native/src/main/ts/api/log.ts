@@ -20,7 +20,7 @@ export function log(baseUrl: string, token: string) {
         `${baseUrl}/job/${data.templateVariable['job.id']}/log`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -39,7 +39,7 @@ export function log(baseUrl: string, token: string) {
         `${baseUrl}/job/${data.templateVariable['job.id']}/log.txt`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore
@@ -60,7 +60,7 @@ export function log(baseUrl: string, token: string) {
         `${baseUrl}/job/${data.templateVariable['job.id']}/log`,
         {
           headers: {
-            'Travis-API-Version': 3,
+            'Travis-API-Version': '3',
             Authorization: `${token}`,
           },
           // @ts-ignore

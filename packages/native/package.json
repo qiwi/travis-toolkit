@@ -38,15 +38,15 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "cheerio": "^1.0.0-rc.6"
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
-    "@qiwi/substrate": "^1.20.7",
-    "@types/cheerio": "^0.22.28",
-    "axios-mock-adapter": "^1.19.0"
+    "@qiwi/substrate": "^1.20.11",
+    "@types/cheerio": "^0.22.30",
+    "axios-mock-adapter": "^1.20.0"
   },
   "repository": {
     "type": "git",
