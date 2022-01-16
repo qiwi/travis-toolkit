@@ -5,6 +5,15 @@
   "publishConfig": {
     "access": "public"
   },
+  "bin": {
+    "terser": "../../node_modules/.bin/terser",
+    "typedoc": "../../node_modules/.bin/typedoc",
+    "rimraf": "../../node_modules/.bin/rimraf",
+    "eslint": "../../node_modules/.bin/eslint",
+    "jest": "../../node_modules/.bin/jest",
+    "prettier": "../../node_modules/.bin/prettier",
+    "libdefkit": "../../node_modules/.bin/libdefkit"
+  },
   "description": "travis-toolkit infra assets",
   "keywords": [],
   "files": [],
