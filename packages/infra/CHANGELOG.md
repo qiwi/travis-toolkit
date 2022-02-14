@@ -1,3 +1,10 @@
+## @qiwi/travis-infra [1.1.2](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-infra@1.1.1...@qiwi/travis-infra@1.1.2) (2022-02-14)
+
+
+### Bug Fixes
+
+* update deps, fix some vuls ([4ab37ec](https://github.com/qiwi/travis-toolkit/commit/4ab37ecc842809b4d75c65fdff70f07e2b491fb7))
+
 ## @qiwi/travis-infra [1.1.1](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-infra@1.1.0...@qiwi/travis-infra@1.1.1) (2021-05-03)
 
 
