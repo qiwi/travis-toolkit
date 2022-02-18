@@ -37,13 +37,13 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "cheerio": "^1.0.0-rc.10"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
   "devDependencies": {
-    "@types/cheerio": "^0.22.30",
+    "@types/cheerio": "^0.22.31",
     "axios-mock-adapter": "^1.20.0",
     "openapi-types": "^10.0.0"
   },
