@@ -20,7 +20,7 @@
     "build": "mkdir -p target/json/ && cp -r src/main/json/ target/json/"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "cheerio": "^1.0.0-rc.10"
   },
   "peerDependencies": {},
