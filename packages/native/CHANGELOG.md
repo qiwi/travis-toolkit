@@ -1,3 +1,10 @@
+## @qiwi/travis-native [1.2.2](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-native@1.2.1...@qiwi/travis-native@1.2.2) (2022-02-18)
+
+
+### Bug Fixes
+
+* update axios to v0.26.0 ([7e38d3e](https://github.com/qiwi/travis-toolkit/commit/7e38d3e017de28498c20d96f41f4d5aa56f05d23))
+
 ## @qiwi/travis-native [1.2.1](https://github.com/qiwi/travis-toolkit/compare/@qiwi/travis-native@1.2.0...@qiwi/travis-native@1.2.1) (2022-02-14)
 
 
